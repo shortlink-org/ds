@@ -18,6 +18,8 @@ import (
 	"github.com/shortlink-org/shortlink/pkg/di/pkg/profiling"
 	"github.com/shortlink-org/shortlink/pkg/logger"
 	"github.com/shortlink-org/shortlink/pkg/observability/metrics"
+
+	"github.com/shortlink-org/ds/agent/internal/pkg/anthropic"
 )
 
 type AgentService struct {
@@ -30,11 +32,15 @@ type AgentService struct {
 	Tracer        trace.TracerProvider
 	Metrics       *metrics.Monitoring
 	PprofEndpoint profiling.PprofEndpoint
+
+	// Application
+	Agent *anthropic.Agent
 }
 
 // AgentService =========================================================================================================
 var AgentSet = wire.NewSet(
 	di.DefaultSet,
+	anthropic.New,
 
 	NewAgentService,
 )
@@ -49,6 +55,9 @@ func NewAgentService(
 	metrics *metrics.Monitoring,
 	tracer trace.TracerProvider,
 	pprofHTTP profiling.PprofEndpoint,
+
+	// Application
+	agent *anthropic.Agent,
 ) (*AgentService, error) {
 	return &AgentService{
 		// Common
@@ -60,6 +69,9 @@ func NewAgentService(
 		Metrics:       metrics,
 		PprofEndpoint: pprofHTTP,
 		AutoMaxPro:    autoMaxProcsOption,
+
+		// Application
+		Agent: agent,
 	}, nil
 }
 

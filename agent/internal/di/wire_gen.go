@@ -8,6 +8,7 @@ package agent_di
 
 import (
 	"github.com/google/wire"
+	"github.com/shortlink-org/ds/agent/internal/pkg/anthropic"
 	"github.com/shortlink-org/shortlink/pkg/di"
 	"github.com/shortlink-org/shortlink/pkg/di/pkg/autoMaxPro"
 	"github.com/shortlink-org/shortlink/pkg/di/pkg/config"
@@ -68,7 +69,16 @@ func InitializeAgentService() (*AgentService, func(), error) {
 		cleanup()
 		return nil, nil, err
 	}
-	agentService, err := NewAgentService(logger, configConfig, autoMaxProAutoMaxPro, monitoring, tracerProvider, pprofEndpoint)
+	agent, err := anthropic.New(context)
+	if err != nil {
+		cleanup5()
+		cleanup4()
+		cleanup3()
+		cleanup2()
+		cleanup()
+		return nil, nil, err
+	}
+	agentService, err := NewAgentService(logger, configConfig, autoMaxProAutoMaxPro, monitoring, tracerProvider, pprofEndpoint, agent)
 	if err != nil {
 		cleanup5()
 		cleanup4()
@@ -98,10 +108,13 @@ type AgentService struct {
 	Tracer        trace.TracerProvider
 	Metrics       *metrics.Monitoring
 	PprofEndpoint profiling.PprofEndpoint
+
+	// Application
+	Agent *anthropic.Agent
 }
 
 // AgentService =========================================================================================================
-var AgentSet = wire.NewSet(di.DefaultSet, NewAgentService)
+var AgentSet = wire.NewSet(di.DefaultSet, anthropic.New, NewAgentService)
 
 func NewAgentService(
 
@@ -109,6 +122,8 @@ func NewAgentService(
 	autoMaxProcsOption autoMaxPro.AutoMaxPro, metrics2 *metrics.Monitoring,
 	tracer trace.TracerProvider,
 	pprofHTTP profiling.PprofEndpoint,
+
+	agent *anthropic.Agent,
 ) (*AgentService, error) {
 	return &AgentService{
 
@@ -119,5 +134,7 @@ func NewAgentService(
 		Metrics:       metrics2,
 		PprofEndpoint: pprofHTTP,
 		AutoMaxPro:    autoMaxProcsOption,
+
+		Agent: agent,
 	}, nil
 }

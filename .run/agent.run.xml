@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="agent" type="GoApplicationRunConfiguration" factoryName="Go Application">
+    <module name="ds" />
+    <working_directory value="$PROJECT_DIR$/agent" />
+    <kind value="PACKAGE" />
+    <package value="github.com/shortlink-org/ds/agent/cmd" />
+    <directory value="$PROJECT_DIR$" />
+    <filePath value="$PROJECT_DIR$/agent/cmd/agent.go" />
+    <pty_enabled value="true" />
+    <method v="2" />
+  </configuration>
+</component>
