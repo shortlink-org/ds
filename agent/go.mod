@@ -5,7 +5,7 @@ go 1.25.0
 require (
 	github.com/anthropics/anthropic-sdk-go v1.9.1
 	github.com/google/wire v0.6.0
-	github.com/shortlink-org/shortlink v0.0.0-20250816053443-9234824eff63
+	github.com/shortlink-org/shortlink v0.0.0-20250819222728-6dbf3d77e3e6
 	github.com/spf13/viper v1.20.1
 	go.opentelemetry.io/otel/trace v1.37.0
 )
@@ -98,7 +98,7 @@ require (
 	github.com/xdg-go/stringprep v1.0.4 // indirect
 	github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78 // indirect
 	go.mongodb.org/mongo-driver v1.17.2 // indirect
-	go.mongodb.org/mongo-driver/v2 v2.2.3 // indirect
+	go.mongodb.org/mongo-driver/v2 v2.3.0 // indirect
 	go.opentelemetry.io/auto/sdk v1.1.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.62.0 // indirect
 	go.opentelemetry.io/otel v1.37.0 // indirect
