@@ -4,7 +4,7 @@ go 1.25.0
 
 require (
 	github.com/anthropics/anthropic-sdk-go v1.9.1
-	github.com/google/wire v0.6.0
+	github.com/google/wire v0.7.0
 	github.com/shortlink-org/shortlink v0.0.0-20250816053443-9234824eff63
 	github.com/spf13/viper v1.20.1
 	go.opentelemetry.io/otel/trace v1.37.0
