@@ -1,0 +1,6 @@
+dependencies:
+- name: kserve
+  repository: oci://ghcr.io/kserve/charts
+  version: v0.15.2
+digest: sha256:2302de6caac9bd3e649a4cefbfbd9b428e8d950b2e89303a7a74a9faa4090406
+generated: "2025-09-05T01:01:19.11696+03:00"
