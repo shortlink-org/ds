@@ -2,7 +2,7 @@ apiVersion: "serving.kserve.io/v1beta1"
 kind: "InferenceService"
 metadata:
   name: sklearn-iris
-  namespace: kserve-test
+  namespace: kserve
 spec:
   predictor:
     model:
