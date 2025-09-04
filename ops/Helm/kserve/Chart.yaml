@@ -20,3 +20,6 @@ dependencies:
   - name: kserve
     version: v0.15.2
     repository: oci://ghcr.io/kserve/charts
+  - name: kserve-crd
+    version: v0.15.2
+    repository: oci://ghcr.io/kserve/charts
