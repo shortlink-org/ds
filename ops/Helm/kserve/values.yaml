@@ -1,1 +1,5 @@
-kserve: {}
+kserve:
+  kserve:
+    controller:
+      gateway:
+        domain: kserve.shortlink.best
