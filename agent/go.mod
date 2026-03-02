@@ -3,7 +3,7 @@ module github.com/shortlink-org/ds/agent
 go 1.25.0
 
 require (
-	github.com/anthropics/anthropic-sdk-go v1.16.0
+	github.com/anthropics/anthropic-sdk-go v1.26.0
 	github.com/google/wire v0.7.0
 	github.com/shortlink-org/shortlink e2516b1c4c8f
 	github.com/spf13/viper v1.21.0
