@@ -7,7 +7,7 @@ require (
 	github.com/google/wire v0.7.0
 	github.com/shortlink-org/shortlink e2516b1c4c8f
 	github.com/spf13/viper v1.21.0
-	go.opentelemetry.io/otel/trace v1.40.0
+	go.opentelemetry.io/otel/trace v1.46.0
 )
 
 require (
